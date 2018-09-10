@@ -1,2 +1,10 @@
+<p align="center">
+<img src="images/democracy-earth.png" width="400" title="Democracy Earth Foundation">
+</p>
+
 # exodus
-Universal Basic Income for self-sovereign citizens.
+Democracy Earth smart contracts library taking shape in this repo, everything still experimental. 
+
+## runnning tests
+
+All tests located in `/test` directory, try `NODE_ENV=test truffle test test/token/Vote.test.js` from root 
