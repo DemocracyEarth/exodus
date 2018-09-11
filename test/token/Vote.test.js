@@ -22,7 +22,7 @@ contract('Vote', function ([_, testAddress, owner, recipient, anotherAccount]) {
     it('returns the total amount of tokens', async function () {
       const result = await this.proxy.totalSupply();
 
-      assert.equal(result.toNumber(), 200000000000);
+      assert.equal(result.toNumber(), 500000000);
     });
   });
 
@@ -39,7 +39,7 @@ contract('Vote', function ([_, testAddress, owner, recipient, anotherAccount]) {
       it('returns the total amount of tokens', async function () {
         const balance = await this.proxy.balanceOf(owner);
 
-        assert.equal(balance.toNumber(), 200000000000);
+        assert.equal(balance.toNumber(), 500000000);
       });
     });
   });
@@ -49,7 +49,7 @@ contract('Vote', function ([_, testAddress, owner, recipient, anotherAccount]) {
       const to = recipient;
 
       describe('when the sender does not have enough balance', function () {
-        const amount = 200000000001;
+        const amount = 500000001;
 
         it('reverts', async function () {
           await assertRevert(this.proxy.transfer(to, amount, { from: owner }));
@@ -57,7 +57,7 @@ contract('Vote', function ([_, testAddress, owner, recipient, anotherAccount]) {
       });
 
       describe('when the sender has enough balance', function () {
-        const amount = 200000000000;
+        const amount = 500000000;
 
         it('transfers the requested amount', async function () {
           await this.proxy.transfer(to, amount, { from: owner });
@@ -83,7 +83,7 @@ contract('Vote', function ([_, testAddress, owner, recipient, anotherAccount]) {
 
     describe('when the recipient is the zero address', function () {
       const to = ZERO_ADDRESS;
-      const amount = 200000000000;
+      const amount = 500000000;
 
       it('reverts', async function () {
         await assertRevert(this.proxy.transfer(to, amount, { from: owner }));
@@ -96,7 +96,7 @@ contract('Vote', function ([_, testAddress, owner, recipient, anotherAccount]) {
       const spender = recipient;
 
       describe('when the sender has enough balance', function () {
-        const amount = 200000000000;
+        const amount = 500000000;
 
         it('emits an approval event', async function () {
           const { logs } = await this.proxy.approve(spender, amount, { from: owner });
@@ -132,7 +132,7 @@ contract('Vote', function ([_, testAddress, owner, recipient, anotherAccount]) {
       });
 
       describe('when the sender does not have enough balance', function () {
-        const amount = 200000000001;
+        const amount = 500000001;
 
         it('emits an approval event', async function () {
           const { logs } = await this.proxy.approve(spender, amount, { from: owner });
@@ -169,7 +169,7 @@ contract('Vote', function ([_, testAddress, owner, recipient, anotherAccount]) {
     });
 
     describe('when the spender is the zero address', function () {
-      const amount = 200000000000;
+      const amount = 500000000;
       const spender = ZERO_ADDRESS;
 
       it('approves the requested amount', async function () {
@@ -199,11 +199,11 @@ contract('Vote', function ([_, testAddress, owner, recipient, anotherAccount]) {
 
       describe('when the spender has enough approved balance', function () {
         beforeEach(async function () {
-          await this.proxy.approve(spender, 200000000000, { from: owner });
+          await this.proxy.approve(spender, 500000000, { from: owner });
         });
 
         describe('when the owner has enough balance', function () {
-          const amount = 200000000000;
+          const amount = 500000000;
 
           it('transfers the requested amount', async function () {
             await this.proxy.transferFrom(owner, to, amount, { from: spender });
@@ -234,7 +234,7 @@ contract('Vote', function ([_, testAddress, owner, recipient, anotherAccount]) {
         });
 
         describe('when the owner does not have enough balance', function () {
-          const amount = 200000000001;
+          const amount = 500000001;
 
           it('reverts', async function () {
             await assertRevert(this.proxy.transferFrom(owner, to, amount, { from: spender }));
@@ -244,11 +244,11 @@ contract('Vote', function ([_, testAddress, owner, recipient, anotherAccount]) {
 
       describe('when the spender does not have enough approved balance', function () {
         beforeEach(async function () {
-          await this.proxy.approve(spender, 199999999999, { from: owner });
+          await this.proxy.approve(spender, 499999999, { from: owner });
         });
 
         describe('when the owner has enough balance', function () {
-          const amount = 200000000000;
+          const amount = 500000000;
 
           it('reverts', async function () {
             await assertRevert(this.proxy.transferFrom(owner, to, amount, { from: spender }));
@@ -256,7 +256,7 @@ contract('Vote', function ([_, testAddress, owner, recipient, anotherAccount]) {
         });
 
         describe('when the owner does not have enough balance', function () {
-          const amount = 200000000001;
+          const amount = 500000001;
 
           it('reverts', async function () {
             await assertRevert(this.proxy.transferFrom(owner, to, amount, { from: spender }));
@@ -266,7 +266,7 @@ contract('Vote', function ([_, testAddress, owner, recipient, anotherAccount]) {
     });
 
     describe('when the recipient is the zero address', function () {
-      const amount = 200000000000;
+      const amount = 500000000;
       const to = ZERO_ADDRESS;
 
       beforeEach(async function () {
@@ -284,7 +284,7 @@ contract('Vote', function ([_, testAddress, owner, recipient, anotherAccount]) {
       const spender = recipient;
 
       describe('when the sender has enough balance', function () {
-        const amount = 200000000000;
+        const amount = 500000000;
 
         it('emits an approval event', async function () {
           const { logs } = await this.proxy.decreaseApproval(spender, amount, { from: owner });
@@ -320,7 +320,7 @@ contract('Vote', function ([_, testAddress, owner, recipient, anotherAccount]) {
       });
 
       describe('when the sender does not have enough balance', function () {
-        const amount = 200000000001;
+        const amount = 500000001;
 
         it('emits an approval event', async function () {
           const { logs } = await this.proxy.decreaseApproval(spender, amount, { from: owner });
@@ -357,7 +357,7 @@ contract('Vote', function ([_, testAddress, owner, recipient, anotherAccount]) {
     });
 
     describe('when the spender is the zero address', function () {
-      const amount = 200000000000;
+      const amount = 500000000;
       const spender = ZERO_ADDRESS;
 
       it('decreases the requested amount', async function () {
@@ -380,7 +380,7 @@ contract('Vote', function ([_, testAddress, owner, recipient, anotherAccount]) {
   });
 
   describe('increase approval', function () {
-    const amount = 200000000000;
+    const amount = 500000000;
 
     describe('when the spender is not the zero address', function () {
       const spender = recipient;
@@ -420,7 +420,7 @@ contract('Vote', function ([_, testAddress, owner, recipient, anotherAccount]) {
       });
 
       describe('when the sender does not have enough balance', function () {
-        const amount = 200000000001;
+        const amount = 500000001;
 
         it('emits an approval event', async function () {
           const { logs } = await this.proxy.increaseApproval(spender, amount, { from: owner });
