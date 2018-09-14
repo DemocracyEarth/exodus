@@ -63,3 +63,6 @@ typings/
 # web3
 .zos.session
 build/
+
+#VScode
+.vscode
