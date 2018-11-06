@@ -1,4 +1,4 @@
-pragma solidity ^0.4.21;
+pragma solidity ^0.4.25;
 import "openzeppelin-zos/contracts/token/ERC20/DetailedPremintedToken.sol";
 
 contract Vote is DetailedPremintedToken {
