@@ -1,13 +1,15 @@
-pragma solidity ^0.4.25;
-import "openzeppelin-zos/contracts/token/ERC20/DetailedPremintedToken.sol";
+pragma solidity ^0.4.24;
+import "openzeppelin-eth/contracts/token/ERC20/StandaloneERC20.sol";
 
-contract Vote is DetailedPremintedToken {
-    string private constant name = "Democracy Earth Vote Token";
-    string private constant symbol = "VOTE";
-    uint8 private constant decimals = 18;
-    uint256 private constant INITIAL_SUPPLY = 100000000* 10**uint256(decimals);
+contract Vote is StandaloneERC20 {
+    string private constant _name = "Democracy Earth Vote Token";
+    string private constant _symbol = "VOTE";
+    uint8 private constant _decimals = 18;
+    uint256 private constant _INITIAL_SUPPLY = 100000000 * 10**uint256(_decimals);
+    address[] _minters;
+    address[] _pausers;
 
-    function initialize(address initialAccount) public isInitializer("Vote", "0")  {
-        DetailedPremintedToken.initialize(initialAccount, name, symbol, decimals, INITIAL_SUPPLY);
+    function initialize(address initialAccount) public initializer {
+        StandaloneERC20.initialize(_name, _symbol, _decimals, _INITIAL_SUPPLY, initialAccount, _minters, _pausers);
     }
 }

@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/DemocracyEarth/exodus#readme",
   "dependencies": {
+    "openzeppelin-eth": "^2.0.2",
     "openzeppelin-solidity": "^2.0.0-rc.1",
     "openzeppelin-zos": "^1.9.4",
     "truffle-core": "^4.1.14",
