@@ -1,0 +1,35 @@
+{
+  "contracts": {
+    "Vote": {
+      "address": "0x69350bb94c6603cf2e7d81fae0f3c1a2d6707aa5",
+      "constructorCode": "608060405234801561001057600080fd5b50611b8f806100206000396000f300",
+      "bodyBytecodeHash": "c0bdd93ab73b1e026c9670e6e5c6ef866aa91f974cebfe1ca39a8869d9b21976",
+      "bytecodeHash": "2d191465b99e7a42dc867106d1866037c6c6eaa50610034c4ffb72f73598137a"
+    }
+  },
+  "proxies": {
+    "Vote": [
+      {
+        "address": "0xf9f8587544471dcf00a48b0d4231ce7ca9b03487",
+        "version": "0.1.0",
+        "implementation": "0x69350bb94c6603cf2e7d81fae0f3c1a2d6707aa5"
+      }
+    ]
+  },
+  "stdlib": {
+    "address": "0xb2590a5ee0cb89875315caae32646a61ff8e30c9",
+    "customDeploy": true,
+    "name": "openzeppelin-zos",
+    "version": "^1.9.4"
+  },
+  "app": {
+    "address": "0xe157057d5343bac3e41ed660b4351c25db0b55ec"
+  },
+  "version": "0.1.0",
+  "package": {
+    "address": "0xbc50d78c577eecbb52ebb96b862535c997772768"
+  },
+  "provider": {
+    "address": "0x9a4e2f9ef456f54353c977e19bd24063bef703d0"
+  }
+}

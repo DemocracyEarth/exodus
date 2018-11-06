@@ -1,6 +1,7 @@
 'use strict';
 require('babel-register');
 require('babel-polyfill');
+var HDWalletProvider = require("truffle-hdwallet-provider");
 
 /* README - debug
 * have played around with `gas` and `gasPrice`,
@@ -8,20 +9,20 @@ require('babel-polyfill');
 * issues.  
 */
 
+var mnemonic = "glad cereal slogan limb salon spin father bulb poem paper siren robot";
+
 module.exports = {
   networks: {
     local: {
       host: 'localhost',
       port: 9545,
-      gas: 5,
-      gasPrice: 10000000000000000000000,
       network_id: '*'
+    },
+    rinkeby: {
+      provider: function() {
+        return new HDWalletProvider(mnemonic, "https://rinkeby.infura.io/v3/b1825422de3d471eba20968cf22b85f1")
+      },
+      network_id: 4
     }
   },
-  solc: {
-    optimizer: {
-      enabled: true,
-      runs: 200
-    }
-  }
 };
