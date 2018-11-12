@@ -61,8 +61,11 @@ typings/
 .next
 
 # web3
-.zos.session
 build/
 
 #VScode
 .vscode
+
+# ZeppelinOS
+zos.dev-*.json
+.zos.session
