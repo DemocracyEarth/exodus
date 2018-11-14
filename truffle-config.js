@@ -9,7 +9,7 @@ var HDWalletProvider = require("truffle-hdwallet-provider");
 * issues.  
 */
 
-var mnemonic = "glad cereal slogan limb salon spin father bulb poem paper siren robot";
+var mnemonic;
 
 module.exports = {
   networks: {
